@@ -57,7 +57,7 @@ console.log(
  *
  * ↓ YOUR CODE HERE ↓ */
 // "On July 20th 1969, Niel Armstrong was the first person to set foot on the Earth's moon."
-
+console.log(`On July 20th ${person.year}, ${person.firstname} ${person.lastname} was the first person to set foot on the Earth's moon. `)
 /*-------------------------------------------------------*/
 // Question 2: Instance of a Class
 console.log(`--------------------------
@@ -85,7 +85,9 @@ greeting.hello()
  * Step 3: A greeting should print to the console
  *
  * ↓ YOUR CODE HERE ↓ */
+myGreeting = new Greeting('Loren', 'NE')
 
+myGreeting.hello();
 /*-------------------------------------------------------*/
 // Question 3: myBook
 console.log(`--------------------------
@@ -114,7 +116,16 @@ class Book {
  * Step 7: Invoke the describe method for the yourBook instance. Make it print to the console also.
  *
  * ↓ YOUR CODE HERE ↓ */
+myBook = new Book('Pride and Prejudice', 'Jane Austen');
 
+console.log(this.myBook.title);
+console.log(this.myBook.author);
+
+console.log(myBook.describe())
+
+youBook = new Book('A Christmas Carol', 'Charles Dickens');
+
+console.log(youBook.describe())
 /*-------------------------------------------------------*/
 // Question 4: Create a Class
 console.log(`--------------------------
@@ -129,13 +140,32 @@ Question 4: Create a Class \n`)
  *
  *
  * ↓ YOUR CODE HERE ↓ */
+class Fruit {
+  constructor(name, color, taste) {
+    this.name = name;
+    this.color = color;
+    this.taste = taste;
+  }
 
+  describe() {
+    return `A ${this.name} is ${this.color} and has a ${this.taste} taste.`
+  }
+
+
+}
+
+fruit1 = new Fruit('lime', 'green', 'sour')
+fruit2 = new Fruit('banana', 'yellow', 'sweet')
+
+console.log(fruit1.describe())
+console.log(fruit2.describe())
 /*-------------------------------------------------------*/
 // Question 5: Inheritance and Polymorphism
 console.log(`--------------------------
 Question 5: Inheritance and Polymorphism \n`)
 
-// Look at the provided code below. Notice how Student and Teacher inherit from the Person class through the use of the "extends" and "super" key words. Also, how Student has a redefined details method that is more appropriate than the details method it would have inherited from the Person super class...
+// Look at the provided code below. Notice how Student and Teacher inherit from the Person class through the use of the "extends" and "super" key words. 
+// Also, how Student has a redefined details method that is more appropriate than the details method it would have inherited from the Person super class...
 
 class Person {
   constructor(name, role) {
@@ -173,7 +203,11 @@ class Teacher extends Person {
  * Step 4: Call the introduction method on your new teacher instance AND the details method, make sure that the results are printed to the console.
  *
  * ↓ YOUR CODE HERE ↓ */
+newStudent = new Student('Jacky', 'student')
+newTeacher = new Teacher('Mr. Bean', 'teacher')
 
+console.log(newStudent.introduction() + ' ' + newStudent.details())
+console.log(newTeacher.introduction() + ' ' + newTeacher.details())
 /*-------------------------------------------------------*/
 // Question 6: Inheritance
 console.log(`--------------------------
@@ -199,7 +233,15 @@ class Parent {
  * HINT: You should be using vital key terms like extends and super
  *
  * ↓ YOUR CODE HERE ↓ */
+class Child extends Parent {
+  constructor(name, age) {
+    super(name, age)
+  }
+}
 
+newChild = new Child('Pugsley', 10)
+
+console.log(newChild.details())
 /*-------------------------------------------------------*/
 // Question 7: Put it all together
 console.log(`--------------------------
